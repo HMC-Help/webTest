@@ -1,0 +1,39 @@
+<table style="width: 100%;">
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Date</th>
+      <th>Type</th>
+      <th>Points</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="transactions?.length != 0">
+    <tr *ngFor="let item of transactions">
+      <td>{{ item.student.studentName }}</td>
+      <td>{{ item.transactionDate }}</td>
+      <td>{{ item.transactionType }}</td>
+      <td>{{ item.points }}</td>
+      <td>{{ item.transactionDescription }}</td>
+      <td></td>
+    </tr>
+  </tbody>
+  <tbody *ngIf="transactions?.length == 0">
+    <tr><td colspan="5" class="no-data-available">No data available in table</td></tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>
+        <select *ngIf="students?.length != 0" [(ngModel)]="newTransaction.studentId">
+          <option *ngFor="let item of students" [value]="item.studentId">{{item.studentName}}</option>
+        </select>
+      </td>
+      <td><input type="date" [(ngModel)]="newTransaction.transactionDate" /></td>
+      <td><input type="text" [(ngModel)]="newTransaction.transactionType" /></td>
+      <td><input type="number" [(ngModel)]="newTransaction.points" /></td>
+      <td><input type="text" [(ngModel)]="newTransaction.transactionDescription" /></td>
+      <td><a style="cursor:pointer;" (click)="AddTransaction()">Add</a></td>
+    </tr>
+  </tfoot>
+</table>

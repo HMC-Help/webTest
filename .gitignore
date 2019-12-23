@@ -1,0 +1,10 @@
+﻿/.vs
+/WebTest/bin
+/WebTest/obj
+
+/WebTest/ClientApp/dist
+/WebTest/ClientApp/e2e
+/WebTest/ClientApp/tmp
+/WebTest/ClientApp/out-tsc
+
+/WebTest/ClientApp/node_modules
